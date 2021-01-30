@@ -1,6 +1,6 @@
 # PLUS-CAR
 
-Um parágrafo da descrição do projeto vai aqui
+O app será usado para administrar a parte financeira de uma loja de automóveis, na qual o dono/vendedor vai cadastrar os custos da loja, desde contas do estabelecimento a despesas por carro. E no final do mês o lucro será exibido para o dono. O aplicativo também vai informar ao vendedor a atualização dos preços dos carros de acordo com os da Tabela FIPE.
 
 ## Começando
 
