@@ -25,4 +25,5 @@ public class UserResource {
     public List<User> listaUser(){
         return userRepository.findAll();
     }
+
 }

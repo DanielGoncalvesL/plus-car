@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -23,19 +25,22 @@ public class Vehicle {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "combustivel")
-    private String combustivel;
+    @Column(name = "fuel")
+    private String fuel;
 
-    @Column(name = "marca")
-    private String marca;
+    @Column(name = "brand")
+    private String brand;
 
-    @Column(name = "ano_modelo")
-    private String anoModelo;
+    @Column(name = "model_year")
+    private String modelYear;
 
-    @Column(name = "preco_fipe")
-    private String precoFipe;
+    @Column(name = "price_fipe")
+    private String priceFipe;
 
-    @Column(name = "fipe_codigo")
-    private String fipeCodigo;
+    @Column(name = "fipe_code")
+    private String fipeCode;
+
+    @OneToMany(mappedBy = "vehicle")
+    private List<Expense> expenses;
 
 }
