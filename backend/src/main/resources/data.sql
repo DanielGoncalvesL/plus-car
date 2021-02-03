@@ -1,0 +1,1 @@
+/*REPLACE INTO 'roles' VALUE (1, 'ADMIN');*/
