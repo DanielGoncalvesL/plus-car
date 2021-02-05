@@ -83,10 +83,16 @@ Adicionar notas adicionais sobre como implantar isso em um sistema ativo
     * [ ] Ao cadastrar ser redirecionado para lista de usuários.
     * [ ] Fechar alertas/msg de erros.
 
-  * [ ] Cadastrar Produtos
-    * [ ] Cadastrar produtos com sucesso.
+  * [ ] Cadastrar Carros
+    * [ ] Cadastrar carros com sucesso.
     * [ ] Validação de erros.
-    * [ ] Ao cadastrar ser redirecionado para lista de produtos.
+    * [ ] Ao cadastrar ser redirecionado para lista de carros.
+    * [ ] Fechar alertas/msg de erros.
+   
+   * [ ] Cadastrar Vendas
+    * [ ] Cadastrar vendas com sucesso.
+    * [ ] Validação de erros.
+    * [ ] Ao cadastrar ser redirecionado para lista de vendas.
     * [ ] Fechar alertas/msg de erros.
 
   * [ ] Listar Usuários
@@ -95,28 +101,19 @@ Adicionar notas adicionais sobre como implantar isso em um sistema ativo
     * [ ] Excluir um usuário.
     * [ ] Fazer paginação.
 
-  * [ ] Listar Produtos
-    * [ ] Listar produtos com sucesso.
+  * [ ] Listar Carros
+    * [ ] Listar carros com sucesso.
     * [ ] Listar imagem.
-    * [ ] Editar um produto.
-    * [ ] Excluir um produto.
+    * [ ] Editar um carro.
+    * [ ] Excluir um carro.
     * [ ] Fazer paginação.
 
+  * [ ] Listar Vendas
+    * [ ] Listar vendas com sucesso.
+    * [ ] Listar imagem.
+    * [ ] Editar uma venda.
+    * [ ] Excluir uma venda.
+    * [ ] Fazer paginação.
+  
   * [ ] Relatórios
 
-* [ ] Cliente
-
-  * [ ] Home
-    * [ ] Navbar.
-    * [ ] Listar produtos com sucesso.
-    * [ ] Adicionar produtos ao carrinho.
-    * [ ] Botão do carrinho.
-    * [ ] Botão logout.
-    * [ ] Fazer paginação dos produtos.
-
-  * [ ] Carrinho
-    * [ ] Listar carrinho.
-    * [ ] Listar produtos com sucesso.
-    * [ ] Fazer paginação dos produtos.
-    * [ ] Finalizar o carrinho.
-    * [ ] Excluir o carrinho.
