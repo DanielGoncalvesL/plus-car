@@ -56,7 +56,7 @@ Dar exemplos
 Adicionar notas adicionais sobre como implantar isso em um sistema ativo
 
 
-### Progresso do projeto Front
+### Progresso do projeto Front e BackEnd
 
 * [ ] Tela de login
   * [ ] Login com sucesso.
