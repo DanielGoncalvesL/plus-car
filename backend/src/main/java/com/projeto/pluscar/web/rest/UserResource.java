@@ -1,4 +1,4 @@
-package com.projeto.pluscar.webrest;
+package com.projeto.pluscar.web.rest;
 
 import com.projeto.pluscar.model.User;
 import com.projeto.pluscar.repository.UserRepository;
