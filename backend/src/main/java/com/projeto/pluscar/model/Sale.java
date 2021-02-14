@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -18,17 +19,16 @@ import java.util.Date;
 public class Sale {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "sale_id")
-    private int id;
+    private UUID id;
+
+    @OneToOne private Vehicle vehicle;
 
     @OneToOne
-    private Vehicle vehicle;
+    private VehicleForSale vehicleForSale;
 
-    @OneToOne
-    private VehicleForSale sale_value;
-
-    @Column(name = "sale_date")
+    @Column(name = "sale_date", nullable = false)
     @NotEmpty(message = "*Please provide a sale date")
     private Date sale_date;
 }

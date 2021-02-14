@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -17,11 +18,11 @@ public class Role {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id")
-    private int id;
+    private UUID id;
 
-    @Column(name = "role")
+    @Column(name = "role", nullable = false, length = 45, unique = true)
     private String role;
 
 }

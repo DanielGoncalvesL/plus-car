@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -17,11 +18,11 @@ import javax.validation.constraints.NotEmpty;
 public class VehicleForSale{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "vehicleForSale_id")
-    private int id;
+    private UUID id;
 
-    @Column(name = "sale_value")
+    @Column(name = "sale_value", nullable = false)
     @NotEmpty(message = "*Please provide a sale value")
     private String saleValue;
 

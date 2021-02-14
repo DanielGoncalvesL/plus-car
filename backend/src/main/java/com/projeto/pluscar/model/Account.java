@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -18,19 +19,19 @@ import java.util.Date;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "account_id")
-    private int id;
+    private UUID id;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     @NotEmpty(message = "*Please provide a description")
     private String description;
 
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     @NotEmpty(message = "*Please provide a price")
     private String price;
 
-    @Column(name = "due_date")
+    @Column(name = "due_date", nullable = false)
     @NotEmpty(message = "*Please provide a due date")
     private Date due_date;
 }

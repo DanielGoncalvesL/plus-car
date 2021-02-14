@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -18,26 +19,26 @@ import java.util.Set;
 public class Vehicle {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "vehicle_id")
-    private int id;
+    private UUID id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "fuel")
+    @Column(name = "fuel", nullable = false)
     private String fuel;
 
-    @Column(name = "brand")
+    @Column(name = "brand", nullable = false)
     private String brand;
 
-    @Column(name = "model_year")
+    @Column(name = "model_year", nullable = false)
     private String modelYear;
 
-    @Column(name = "price_fipe")
+    @Column(name = "price_fipe", nullable = false)
     private String priceFipe;
 
-    @Column(name = "fipe_code")
+    @Column(name = "fipe_code", nullable = false)
     private String fipeCode;
 
     @OneToMany(mappedBy = "vehicle")

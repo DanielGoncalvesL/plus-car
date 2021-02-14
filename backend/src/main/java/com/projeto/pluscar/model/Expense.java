@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.UUID;
 
 
 @Data
@@ -18,19 +19,19 @@ import javax.validation.constraints.NotEmpty;
 public class Expense {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "expense_id")
-    private int id;
+    private UUID id;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     @NotEmpty(message = "*Please provide a description")
     private String description;
 
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     @NotEmpty(message = "*Please provide a price")
     private String price;
 
     @ManyToOne
-    @JoinColumn(name = "vehicle_id")
+    @JoinColumn(name = "vehicle_id", nullable = false)
     private Vehicle vehicle;
 }
