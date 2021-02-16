@@ -20,7 +20,7 @@ public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "expense_id")
+    @Column(name = "expense_id", columnDefinition = "BINARY(16)")
     private UUID id;
 
     @Column(name = "description", nullable = false)

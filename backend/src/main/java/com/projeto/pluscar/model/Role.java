@@ -19,7 +19,7 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "role_id")
+    @Column(name = "role_id", columnDefinition = "BINARY(16)")
     private UUID id;
 
     @Column(name = "role", nullable = false, length = 45, unique = true)

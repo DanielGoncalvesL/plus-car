@@ -20,7 +20,7 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "vehicle_id")
+    @Column(name = "vehicle_id", columnDefinition = "BINARY(16)")
     private UUID id;
 
     @Column(name = "name", nullable = false)
