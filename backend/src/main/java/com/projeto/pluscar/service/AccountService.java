@@ -1,5 +1,6 @@
 package com.projeto.pluscar.service;
 
+import com.projeto.pluscar.model.Account;
 import com.projeto.pluscar.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,4 +13,5 @@ public class AccountService {
     public AccountService(AccountRepository accountRepository){
         this.accountRepository = accountRepository;
     }
+
 }
