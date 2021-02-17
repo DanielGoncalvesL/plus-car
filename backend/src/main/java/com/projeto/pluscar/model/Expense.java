@@ -32,5 +32,6 @@ public class Expense {
     @ManyToOne
     private Vehicle vehicle;
 
+    @Transient
     private UUID id_vehicle;
 }
