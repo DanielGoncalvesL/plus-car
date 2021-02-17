@@ -1,5 +1,6 @@
 package com.projeto.pluscar.web.rest;
 
+import com.projeto.pluscar.model.Expense;
 import com.projeto.pluscar.model.Vehicle;
 import com.projeto.pluscar.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,8 @@ public class VehicleResource {
     }
 
     @GetMapping("{id}")
-    public Vehicle findVehicle(@PathVariable UUID id){
+    public List<Expense> findVehicle(@PathVariable UUID id){
+        Vehicle v = vehicleRepository.findVehicleById(id);
         return null;
     }
 

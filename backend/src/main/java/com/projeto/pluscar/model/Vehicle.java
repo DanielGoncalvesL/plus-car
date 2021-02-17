@@ -1,3 +1,4 @@
+
 package com.projeto.pluscar.model;
 
 import lombok.AllArgsConstructor;
@@ -36,12 +37,11 @@ public class Vehicle {
     private String modelYear;
 
     @Column(name = "price_fipe", nullable = false)
-    private String priceFipe;
+    private double priceFipe;
 
     @Column(name = "fipe_code", nullable = false)
     private String fipeCode;
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<Expense> expenses;
-
+    @Column(name = "expenses", nullable = false)
+    private double expenses;
 }
