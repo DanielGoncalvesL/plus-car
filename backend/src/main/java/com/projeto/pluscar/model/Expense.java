@@ -24,14 +24,13 @@ public class Expense {
     private UUID id;
 
     @Column(name = "description", nullable = false)
-    @NotEmpty(message = "*Please provide a description")
     private String description;
 
     @Column(name = "price", nullable = false)
-    @NotEmpty(message = "*Please provide a price")
-    private String price;
+    private double price;
 
     @ManyToOne
-    @JoinColumn(name = "vehicle_id", nullable = false)
     private Vehicle vehicle;
+
+    private UUID id_vehicle;
 }
