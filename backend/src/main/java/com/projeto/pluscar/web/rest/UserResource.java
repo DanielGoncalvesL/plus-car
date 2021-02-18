@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/public/")
+@RequestMapping("/user/")
 public class UserResource {
 
     @Autowired
@@ -18,24 +19,24 @@ public class UserResource {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/teste")
-    public String teste(){
-        return "Olá Mundo";
-    }
-
-    @GetMapping("/usuarios")
+    @GetMapping
     public List<User> listaUser(){
         return userRepository.findAll();
     }
 
-    @GetMapping("/usuarios/{id}")
-    public User findUserForId(@PathVariable int id){
-        return userRepository.findById(id);
+    @GetMapping("/{id}")
+    public User findUserForId(@PathVariable UUID id){
+        return userRepository.findUserById(id);
     }
 
-    @PostMapping("/usuarios")
+    @PostMapping
     public User newUser(@RequestBody User user){
         return userService.saveUser(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable UUID id){
+        userService.deleteUser(id);
     }
 
 }
