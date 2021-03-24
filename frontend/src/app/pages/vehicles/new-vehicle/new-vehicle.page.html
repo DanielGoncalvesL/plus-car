@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Cadastrar Veiculo</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form (ngSubmit)="submit()" [formGroup]="contaForm">
+        <ion-card-content>
+            <ion-item>
+                <ion-label position="stacked">Tipo de Veiculo</ion-label>
+                <ion-select value="carros" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção" required [(ngModel)]="vehicleType" (ngModelChange)="findBrands($event)" formControlName="type">
+                    <ion-select-option value="carros">Carros</ion-select-option>
+                    <ion-select-option value="motos">Motos</ion-select-option>
+                    <ion-select-option value="caminhoes">Caminhões</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Marca do Veiculo</ion-label>
+                <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção" required [(ngModel)]="vehicleBrand" (ngModelChange)="findModels($event)" formControlName="brand">
+                    <ion-select-option *ngFor="let brand of brands" value={{brand.codigo}}>{{brand.nome}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Modelo do Veiculo</ion-label>
+                <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção" required [(ngModel)]="vehicleModel" (ngModelChange)="findYear($event)" formControlName="model">
+                    <ion-select-option *ngFor="let model of models" value={{model.codigo}}>{{model.nome}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Ano do Veiculo</ion-label>
+                <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção" required [(ngModel)]="vehicleYear" (ngModelChange)="findVehicles($event)" formControlName="year">
+                    <ion-select-option *ngFor="let year of years" value={{year.codigo}}>{{year.nome}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="fixed">Valor</ion-label>
+                <ion-input formControlName="value">{{vehicle?.Valor}}</ion-input>
+            </ion-item>
+        </ion-card-content>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="block" color="warning" (click)="clean()">
+                        Limpar
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="block" color="success" type="submit">
+                        Cadastrar
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
