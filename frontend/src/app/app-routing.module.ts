@@ -27,6 +27,12 @@ const routes: Routes = [
     path: 'despesas',
     loadChildren: () => import('./pages/despesas/despesa.module').then( m => m.DespesaPageModule)
   },
+  
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  }, 
+
   {
     path: 'despesas/new-despesa',
     loadChildren: () => import('./pages/despesas/new-despesa/new-despesa.module').then( m => m.NewDespesaPageModule)

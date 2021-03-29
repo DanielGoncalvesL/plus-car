@@ -1,0 +1,43 @@
+<ion-content>
+  <ion-menu side="start" content-id="main-content">
+    <ion-header>
+      <ion-toolbar translucent>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+              <ion-button fill="undefined" routerLink="/despesas" > Minhas Despesas </ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="paper-plane" slot="start"></ion-icon>
+          <ion-button fill="undefined" routerLink="/despesas/new-despesa" > Cadastar Despesas </ion-button>
+
+        </ion-item>
+        <ion-item>
+          <ion-icon name="heart" slot="start"></ion-icon>
+          <ion-button fill="undefined" routerLink="/vehicles/new-vehicle" > Cadastrar Carros </ion-button>
+
+        </ion-item>
+        <ion-item>
+          <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-button fill="undefined" routerLink="/login" > Log out </ion-button>
+
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+</ion-content>
