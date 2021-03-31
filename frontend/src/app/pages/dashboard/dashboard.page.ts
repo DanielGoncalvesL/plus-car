@@ -53,19 +53,9 @@ export class DashboardPage implements OnInit {
     return Math.floor(value);
   }
 
-  ngOnInit() {
-    // this.contas = JSON.parse(localStorage.getItem('contaBD'));
-
-    if (!this.contas) {
-      // this.contas = [];
-      // localStorage.setItem('contaBD', JSON.stringify(this.contas));
-    }
-    if (JSON.parse(localStorage.getItem('loginBD'))) {
-      // this.usuario = JSON.parse(localStorage.getItem('loginBD'));
-      // this.contas = JSON.parse(localStorage.getItem('contaBD'));
-      // this.getContasByUsuario(this.usuario.id);
-    } else {
-      // this.navController.navigateBack('/login');
+  async ngOnInit() {
+    if (!JSON.parse(localStorage.getItem('auth'))) {
+      await this.navController.navigateRoot('/login');
     }
   }
 

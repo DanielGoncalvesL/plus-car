@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 import {
   FormControl,
@@ -17,15 +18,19 @@ export class NewDespesaNormalPage implements OnInit {
   brandDisabled: true;
 
   despesaForm = new FormGroup({
-    
+
   });
 
 
   constructor(
-
+    protected navController: NavController,
   ) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    if (!JSON.parse(localStorage.getItem('auth'))) {
+      await this.navController.navigateRoot('/login');
+    }
+  }
 
   async submit() {
 
@@ -33,7 +38,7 @@ export class NewDespesaNormalPage implements OnInit {
 
   clean(field ? : string) {
     switch (field) {
-     
+
   }
 
   }

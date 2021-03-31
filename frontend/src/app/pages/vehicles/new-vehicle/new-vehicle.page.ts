@@ -36,7 +36,7 @@ import {
 
 import {
   ICreateVehicleDTO
-} from './DTOs/ICreateVehicleDTO';
+} from './dtos/ICreateVehicleDTO';
 
 import {
   NewVehicleService
@@ -88,7 +88,11 @@ export class NewVehiclePage implements OnInit {
     private toastController: ToastController
   ) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    if (!JSON.parse(localStorage.getItem('auth'))) {
+      await this.navController.navigateRoot('/login');
+    }
+  }
 
   async findBrands(vehicleType: string) {
     this.clean("brand");

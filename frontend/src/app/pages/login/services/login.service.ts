@@ -1,9 +1,23 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ILoginDTO } from '../dtos/ILoginDTO';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+
+  private readonly url = 'http://localhost:3333/authenticate';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+   }),
+  };
+
+  constructor(private http: HttpClient) { }
+
+  async auth(login: ILoginDTO){
+    return this.http.post(this.url,JSON.stringify(login), this.httpOptions).toPromise();
+  }
 }

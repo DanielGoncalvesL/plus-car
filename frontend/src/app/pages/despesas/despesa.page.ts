@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  NavController,
+  ToastController
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-despesa',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DespesaPage implements OnInit {
 
-  constructor() { }
+  constructor(protected navController: NavController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    if (!JSON.parse(localStorage.getItem('auth'))) {
+      await this.navController.navigateRoot('/login');
+    }
   }
 
 }

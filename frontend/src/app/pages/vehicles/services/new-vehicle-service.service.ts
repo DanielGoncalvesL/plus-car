@@ -4,7 +4,7 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 
-import {ICreateVehicleDTO} from '../new-vehicle/DTOs/ICreateVehicleDTO'
+import {ICreateVehicleDTO} from '../new-vehicle/dtos/ICreateVehicleDTO'
 
 
 @Injectable({
@@ -29,7 +29,7 @@ export class NewVehicleService {
 
   async updateVehicle<ICreateVehicleDTO>(data: ICreateVehicleDTO, id: string){
     return this.http.put(this.url + "vehicles/" + id, JSON.stringify(data), this.httpOptions).toPromise();
-  } 
+  }
 
   async deleteVehicle(id: string){
     return this.http.delete(this.url + "vehicles/" + id, this.httpOptions).toPromise();
@@ -40,5 +40,5 @@ export class NewVehicleService {
   }
 
 
-  
+
 }
