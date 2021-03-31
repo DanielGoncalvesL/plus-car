@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submit()" [formGroup]="registerForm">
+    <ion-card-content>
+        <ion-item>
+            <ion-label position="stacked">Login</ion-label>
+            <ion-input type="text" value="" placeholder="Escreva o login"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Senha</ion-label>
+            <ion-input type="text" value="" placeholder="Escreva a senha"></ion-input>
+        </ion-item>
+    </ion-card-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-button expand="block" color="warning" (click)="clean()">
+                    Limpar
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button expand="block" color="success" type="submit">
+                    Cadastrar
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
