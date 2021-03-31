@@ -7,10 +7,10 @@ import {
 
 import {tap} from 'rxjs/operators';
 
-import {IBrand} from '../models/IBrand';
-import {IModel} from '../models/IModel';
-import {IVehicle} from '../models/IVehicle';
-import {IYear} from '../models/IYear';
+import {IBrand} from '../new-vehicle/models/IBrand';
+import {IModel} from '../new-vehicle/models/IModel';
+import {IVehicle} from '../new-vehicle/models/IVehicle';
+import {IYear} from '../new-vehicle/models/IYear';
 
 @Injectable({
   providedIn: 'root'

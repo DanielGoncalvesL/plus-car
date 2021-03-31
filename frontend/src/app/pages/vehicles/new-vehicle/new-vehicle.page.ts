@@ -32,7 +32,7 @@ import {
 
 import {
   ApiFipeService
-} from './services/api-fipe-service.service';
+} from '../services/api-fipe-service.service';
 
 import {
   ICreateVehicleDTO
@@ -40,7 +40,7 @@ import {
 
 import {
   NewVehicleService
-} from './services/new-vehicle-service.service';
+} from '../services/new-vehicle-service.service';
 
 @Component({
   selector: 'app-new-vehicle',

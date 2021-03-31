@@ -1,0 +1,173 @@
+#pageHeader {
+    position: absolute;
+    height: 36px;
+    left: 16px;
+    right: 16px;
+    top: 60px;
+}
+
+#contaText {
+    /* Minhas Contas */
+    position: absolute;
+    width: 217px;
+    height: 36px;
+    left: calc(50% - 217px / 2 + 2px);
+    top: 0px;
+    /* UI - 30 Semi */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    /* Black */
+    color: #000000;
+}
+
+#voltar {
+    /* Back */
+    position: absolute;
+    width: 58px;
+    height: 19px;
+    left: 0px;
+    top: calc(50% - 19px / 2 - 0.5px);
+    /* UI - 16 Medium */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #d25050;
+    cursor: pointer;
+}
+
+#novaConta {
+    /* New */
+    position: absolute;
+    width: 55px;
+    height: 19px;
+    right: 0px;
+    top: 8px;
+    /* UI - 16 Medium */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+    color: #d25050;
+    cursor: pointer;
+}
+
+#gastos {
+    // text-align: ;
+    position: relative;
+    width: 236px;
+    height: 236px;
+    // left: 90px;
+    top: 178px;
+    margin-left: auto;
+    margin-right: auto;
+    // background-color: #000000;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+#circle {
+    stroke: #d25050;
+    stroke-width: 3px;
+    stroke-dasharray: 725;
+    stroke-dashoffset: 725;
+    transition: all 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#totalMes {
+    font-family: Inter;
+    font-size: 20pt;
+    font-weight: bold;
+    position: relative;
+    top: -80%;
+    left: 31%;
+    // margin-left: auto;
+    // margin-right: auto;
+}
+
+#relacaoMesPassado,
+#contasMes {
+    position: relative;
+    font-size: 10pt;
+    color: #adadad;
+    top: -90%;
+    left: 7.5%;
+}
+
+#contasMes {
+    left: 30.5%
+}
+
+#dataContas {
+    position: relative;
+    width: 70%;
+    height: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.conta {
+    position: relative;
+    width: 95%;
+    height: max-content;
+    left: 16px;
+    top: 180px;
+    cursor: pointer;
+}
+
+.icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0px;
+    top: 15px;
+    background: #b83a3a;
+    border-radius: 15px;
+}
+
+.alt {
+    background: #7a2525;
+}
+
+.item {
+    /* Item */
+    position: relative;
+    width: max-content;
+    height: max-content;
+    left: 20px;
+    top: 15px;
+    /* UI - 16 Medium */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    /* Black */
+    color: #000000;
+}
+
+.divider {
+    position: absolute;
+    height: 0px;
+    left: 0px;
+    right: 0px;
+    top: 35px;
+    /* Gray/02 */
+    border: 1px solid #e8e8e8;
+}
+
+#lixeira {
+    position: absolute;
+    top: 11px;
+    left: 90%;
+}
