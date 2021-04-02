@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  NewVehicleService
+} from './services/new-vehicle-service.service';
 import {
   NavController,
   ToastController
@@ -11,7 +17,9 @@ import {
 })
 export class VehiclesPage implements OnInit {
 
-  constructor(private navController: NavController) { }
+  vehicles: any;
+
+  constructor(private navController: NavController, private vehicleService: NewVehicleService) {}
 
   async ngOnInit() {
     if (!JSON.parse(localStorage.getItem('auth'))) {
@@ -19,4 +27,7 @@ export class VehiclesPage implements OnInit {
     }
   }
 
+  async ionViewWillEnter() {
+    this.vehicles = await this.vehicleService.listVehicles();
+  }
 }

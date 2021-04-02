@@ -16,4 +16,10 @@ export class AppComponent implements OnInit {
   ngOnInit(){
 
   }
+
+  logged(){
+    if (JSON.parse(localStorage.getItem('auth'))) {
+      return true;
+    }
+  }
 }

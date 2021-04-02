@@ -141,6 +141,7 @@ export class NewVehiclePage implements OnInit {
 
     if (response) {
       this.exibirMensagem('Veiculo cadastrado com sucesso!');
+      await this.navController.navigateRoot('/vehicles');
     } else {
       this.exibirMensagem('Erro ao cadastrar veiculo!');
     }

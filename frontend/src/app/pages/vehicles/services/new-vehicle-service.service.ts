@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {
   HttpClient,
   HttpHeaders
@@ -10,14 +10,18 @@ import {ICreateVehicleDTO} from '../new-vehicle/dtos/ICreateVehicleDTO'
 @Injectable({
   providedIn: 'root'
 })
-export class NewVehicleService {
+export class NewVehicleService implements OnInit {
 
   private readonly url = 'http://localhost:3333/';
+
+  ngOnInit(){
+
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${'a'}`
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('auth')).token}`
    }),
   };
 
@@ -39,6 +43,8 @@ export class NewVehicleService {
     return this.http.get(this.url + "vehicles/" + id, this.httpOptions).toPromise();
   }
 
-
+  async listVehicles(){
+    return this.http.get(this.url + "vehicles", this.httpOptions).toPromise();
+  }
 
 }

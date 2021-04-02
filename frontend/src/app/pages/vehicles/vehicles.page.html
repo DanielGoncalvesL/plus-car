@@ -13,9 +13,8 @@
         <ion-icon slot="end" name="add-circle-outline"></ion-icon>
     </ion-button>
     <ion-list>
-        <ion-item>
-            <ion-label>Palio</ion-label>
-            <ion-label>22.000</ion-label>
+        <ion-item *ngFor="let vehicle of vehicles">
+            <ion-label>{{vehicle.name}}</ion-label>
             <ion-button size="small" color="success">Despesa</ion-button>
             <ion-button size="small" color="warning">Editar</ion-button>
             <ion-button size="small" color="danger">Excluir</ion-button>
