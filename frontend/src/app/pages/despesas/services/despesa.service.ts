@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IExpenseDTO } from '../dtos/IExpenseDTO';
 import {
   HttpClient,
   HttpHeaders
@@ -12,26 +13,31 @@ export class DespesaService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${'a'}`
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('auth')).token}`
    }),
 };
-  
+
   constructor(private http: HttpClient) { }
 
-  async createDespesa(data){
-    return this.http.post(this.url + "despesa", JSON.stringify(data), this.httpOptions).toPromise();
+  async createDespesa<IExpenseDTO>(data: IExpenseDTO){
+    console.log(data)
+    return this.http.post(this.url + "expenses", JSON.stringify(data), this.httpOptions).toPromise();
   }
 
   async updateDespesa(data, id: string){
-    return this.http.put(this.url + "despesa/" + id, JSON.stringify(data), this.httpOptions).toPromise();
-  } 
+    return this.http.put(this.url + "expenses/" + id, JSON.stringify(data), this.httpOptions).toPromise();
+  }
 
   async deleteDespesa(id: string){
-    return this.http.delete(this.url + "despesa/" + id, this.httpOptions).toPromise();
+    return this.http.delete(this.url + "expenses/" + id, this.httpOptions).toPromise();
   }
 
   async findDespesa(id: string){
-    return this.http.get(this.url + "despesa/" + id, this.httpOptions).toPromise();
-  } 
-  
+    return this.http.get(this.url + "expenses/" + id, this.httpOptions).toPromise();
+  }
+
+  async listDespesas(){
+    return this.http.get(this.url + "expenses/", this.httpOptions).toPromise();
+  }
+
 }

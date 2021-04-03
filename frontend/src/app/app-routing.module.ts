@@ -34,10 +34,6 @@ const routes: Routes = [{
     loadChildren: () => import('./pages/despesas/new-despesa/new-despesa.module').then(m => m.NewDespesaPageModule)
   },
   {
-    path: 'despesas/new-despesa-normal',
-    loadChildren: () => import('./pages/despesas/new-despesa-normal/new-despesa-normal.module').then(m => m.NewDespesaNormalPageModule)
-  },
-  {
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
   },

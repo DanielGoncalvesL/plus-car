@@ -1,30 +1,22 @@
 <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Nova Despesa</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Nova Despesa</ion-title>
     </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
+</ion-header>
+
+<ion-content>
     <form (ngSubmit)="submit()" [formGroup]="despesaForm">
         <ion-card-content>
             <ion-item>
                 <ion-label position="stacked">Valor</ion-label>
-                <ion-input type="number" value="" placeholder="Escreva o Valor"></ion-input>
+                <ion-input type="text" value="" placeholder="Escreva o Valor" formControlName="value"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label position="stacked">Descrição</ion-label>
-                <ion-input type="text" value="" placeholder="Escreva a Descrição"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label position="stacked">Veiculo</ion-label>
-                <ion-select value="livre" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção">
-                    <ion-select-option value="livre">Despesa Livre</ion-select-option>
-                    <ion-select-option value="motos">BMW-A4</ion-select-option>
-                    <ion-select-option value="caminhoes">FUSCA</ion-select-option>
-                </ion-select>
+                <ion-input type="text" value="" placeholder="Escreva a Descrição" formControlName="description"></ion-input>
             </ion-item>
         </ion-card-content>
 

@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 import {
   FormControl,
   FormGroup,
   Validators
 } from '@angular/forms';
+
+import {DespesaService} from '../services/despesa.service';
+import { IExpenseDTO } from '../dtos/IExpenseDTO';
 
 @Component({
   selector: 'app-new-despesa',
@@ -17,13 +20,17 @@ export class NewDespesaPage implements OnInit {
   isEnable: any;
   brandDisabled: true;
 
-  despesaForm = new FormGroup({
 
+  despesaForm = new FormGroup({
+    value: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
   });
 
 
   constructor(
     protected navController: NavController,
+    protected toastController: ToastController,
+    private expenseService: DespesaService,
   ) {}
 
   async ngOnInit() {
@@ -33,13 +40,24 @@ export class NewDespesaPage implements OnInit {
   }
 
   async submit() {
+    const response = await this.expenseService.createDespesa < IExpenseDTO > ({
+      value: this.despesaForm.get('value').value,
+      description: this.despesaForm.get('description').value,
+    });
 
+    if (response) {
+      this.exibirMensagem('Despesa cadastrado com sucesso!');
+      await this.navController.navigateRoot('/despesas');
+    } else {
+      this.exibirMensagem('Erro ao cadastrar despesa!');
+    }
   }
 
-  clean(field ? : string) {
-    switch (field) {
-
-  }
-
+  async exibirMensagem(mensagem: string) {
+    const toast = await this.toastController.create({
+      message: mensagem,
+      duration: 1500,
+    });
+    toast.present();
   }
 }
