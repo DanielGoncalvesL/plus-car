@@ -30,4 +30,5 @@ export class VehiclesPage implements OnInit {
   async ionViewWillEnter() {
     this.vehicles = await this.vehicleService.listVehicles();
   }
+
 }

@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: DespesaPage
+  },
+  {
+    path: 'vehicle-expenses/:id',
+    loadChildren: () => import('./vehicle-expenses/vehicle-expenses.module').then( m => m.VehicleExpensesPageModule)
   }
 ];
 

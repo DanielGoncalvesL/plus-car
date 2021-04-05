@@ -60,4 +60,9 @@ export class NewDespesaPage implements OnInit {
     });
     toast.present();
   }
+
+  clean(){
+   this.despesaForm.get('value').setValue('');
+   this.despesaForm.get('description').setValue('');
+  }
 }

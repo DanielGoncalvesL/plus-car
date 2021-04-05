@@ -25,5 +25,4 @@ export class DespesaPage implements OnInit {
   async ionViewWillEnter() {
     this.expenses = await this.expenseService.listDespesas();
   }
-
 }
