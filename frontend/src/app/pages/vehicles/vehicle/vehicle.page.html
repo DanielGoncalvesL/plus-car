@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Palio</ion-title>
+        <ion-title>{{vehicle?.name}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -15,9 +15,9 @@
             <ion-col>Preço Fipe</ion-col>
         </ion-row>
         <ion-row>
-            <ion-col>Fiat</ion-col>
-            <ion-col>2015</ion-col>
-            <ion-col>R$20.000</ion-col>
+            <ion-col>{{vehicle?.brand}}</ion-col>
+            <ion-col>{{vehicle?.modelYear}}</ion-col>
+            <ion-col>{{vehicle?.priceFipe}}</ion-col>
         </ion-row>
     </ion-grid>
 

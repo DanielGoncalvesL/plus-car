@@ -96,7 +96,7 @@ export class NewVehiclePage implements OnInit {
 
   async findBrands(vehicleType: string) {
     this.clean("brand");
-    await this.apiFipe.findBrands(vehicleType).subscribe(data => {
+    this.apiFipe.findBrands(vehicleType).subscribe(data => {
       this.loadingService.present();
       this.brands = data;
       this.loadingService.dismiss();
@@ -105,7 +105,7 @@ export class NewVehiclePage implements OnInit {
 
   async findModels(vehicleBrand: number) {
     this.clean("model");
-    await this.apiFipe.findModels(vehicleBrand).subscribe(data => {
+    this.apiFipe.findModels(vehicleBrand).subscribe(data => {
       this.loadingService.present();
       this.models = data.modelos;
       this.loadingService.dismiss();
@@ -114,7 +114,7 @@ export class NewVehiclePage implements OnInit {
 
   async findYear(model: number) {
     this.clean("year");
-    await this.apiFipe.findYear(model).subscribe(data => {
+    this.apiFipe.findYear(model).subscribe(data => {
       this.loadingService.present();
       this.years = data;
       this.loadingService.dismiss()
@@ -122,7 +122,7 @@ export class NewVehiclePage implements OnInit {
   }
 
   async findVehicles(year: string) {
-    await this.apiFipe.findVehicles(year).subscribe(data => {
+    this.apiFipe.findVehicles(year).subscribe(data => {
       this.loadingService.present();
       this.vehicle = data;
       this.loadingService.dismiss()

@@ -39,7 +39,7 @@ export class NewVehicleService implements OnInit {
     return this.http.delete(this.url + "vehicles/" + id, this.httpOptions).toPromise();
   }
 
-  async findVehicle<ICreateVehicleDTO>(id: string){
+  async findVehicle(id: string){
     return this.http.get(this.url + "vehicles/" + id, this.httpOptions).toPromise();
   }
 
