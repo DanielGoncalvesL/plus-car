@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { VehiclesPageRoutingModule } from './vehicles-routing.module';
 
 import { VehiclesPage } from './vehicles.page';
+import { ModalcarPage } from '../modalcar/modalcar.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { VehiclesPage } from './vehicles.page';
     IonicModule,
     VehiclesPageRoutingModule
   ],
-  declarations: [VehiclesPage]
+  declarations: [VehiclesPage, ModalcarPage],
+  entryComponents: [ModalcarPage]
 })
 export class VehiclesPageModule {}
