@@ -6,6 +6,7 @@ import {
   NewVehicleService
 } from './services/new-vehicle-service.service';
 import {
+  AlertController,
   ModalController,
   NavController,
   ToastController
@@ -23,7 +24,7 @@ export class VehiclesPage implements OnInit {
 
   vehicles: any;
 
-  constructor(private navController: NavController, private vehicleService: NewVehicleService, private modalCtrl: ModalController) {}
+  constructor(public alertController: AlertController,private navController: NavController, private vehicleService: NewVehicleService, private modalCtrl: ModalController) {}
 
   async ngOnInit() {
     if (!JSON.parse(localStorage.getItem('auth'))) {
@@ -42,5 +43,31 @@ export class VehiclesPage implements OnInit {
 
     modal.present();
   }
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Confirme',
+      message: '<strong>Deseja confirmar a exclusão?</strong>',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Confirmar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+    let result = await alert.onDidDismiss();
+    console.log(result);
+  }
+
 
 }

@@ -48,7 +48,7 @@
 
 <div id="buton">
   <ion-button  color="warning">Editar</ion-button>
-  <ion-button  color="danger">Vender</ion-button>
+  <ion-button (click)="presentAlertConfirm()" color="danger">Vender</ion-button>
 </div>
 
 <ion-list>
@@ -60,7 +60,7 @@
       <ion-label>Descrição:</ion-label>
       <ion-label>Valor:</ion-label>
       <ion-button size="small" color="warning">Editar</ion-button>
-      <ion-button size="small" color="danger">Excluir</ion-button>
+      <ion-button (click)="presentAlertConfirm()" size="small" color="danger">Excluir</ion-button>
   </ion-item>
 </ion-list>
 

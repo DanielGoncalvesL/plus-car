@@ -17,7 +17,7 @@
             <ion-label [routerLink]="['/vehicles/vehicle/' + vehicle.id]" routerLinkActive="router-link-active">{{vehicle.name}}</ion-label>
             <ion-button size="small" color="success" [routerLink]="['/despesas/vehicle-expenses/' + vehicle.id]" routerLinkActive="router-link-active">Despesa</ion-button>
             <ion-button size="small" color="warning">Editar</ion-button>
-            <ion-button size="small" color="danger">Excluir</ion-button>
+            <ion-button (click)="presentAlertConfirm()" size="small" color="danger">Excluir</ion-button>
         </ion-item>
     </ion-list>
 </ion-content>
