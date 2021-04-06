@@ -45,7 +45,15 @@ const routes: Routes = [{
   {
     path: 'modalcar/:id',
     loadChildren: () => import('./pages/modalcar/modalcar.module').then( m => m.ModalcarPageModule)
+  },  {
+    path: 'modaldespesa',
+    loadChildren: () => import('./pages/modaldespesa/modaldespesa.module').then( m => m.ModaldespesaPageModule)
+  },
+  {
+    path: 'singup',
+    loadChildren: () => import('./pages/singup/singup.module').then( m => m.SingupPageModule)
   }
+
 
 
 ];

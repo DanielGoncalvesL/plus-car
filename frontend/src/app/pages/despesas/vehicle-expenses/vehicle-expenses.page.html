@@ -8,19 +8,15 @@
 </ion-header>
 
 <ion-content class="ion-margin">
-    <ion-grid class="ion-margin">
-        <ion-row>
-            <ion-col>Descrição</ion-col>
-            <ion-col>Valor</ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>Troca de oleo</ion-col>
-            <ion-col>R$150</ion-col>
-        </ion-row>
-    </ion-grid>
+
+    <ion-item *ngFor="let expense of expenses">
+        <ion-label [routerLink]="['/despesas/expense/' + expense.id]" routerLinkActive="router-link-active">{{expense.description}}</ion-label>
+        <ion-button size="small" color="warning">Editar</ion-button>
+        <ion-button size="small" color="danger">Excluir</ion-button>
+    </ion-item>
 
     <ion-item lines="none">
-        <ion-button color="primary" size="small" slot="end" routerLink="/material">
+        <ion-button color="primary" size="expand" routerLink="/material">
             Nova Despesa
         </ion-button>
     </ion-item>

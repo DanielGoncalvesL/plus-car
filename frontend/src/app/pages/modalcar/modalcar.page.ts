@@ -63,4 +63,35 @@ export class ModalcarPage implements OnInit {
       }
     });
   }
+
+  async presentAlertVenda() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Vender',
+      inputs: [
+        {
+          name: 'valorVenda',
+          type: 'number',
+          placeholder: 'Digite o valor'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 }

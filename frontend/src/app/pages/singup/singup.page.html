@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>singup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submit()" [formGroup]="singupForm">
+      <ion-card-content>
+          <ion-item>
+              <ion-label >Email</ion-label>
+              <ion-input ></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label> Senha</ion-label>
+              <ion-input></ion-input>
+          </ion-item>
+      </ion-card-content>
+
+      <ion-grid>
+          <ion-row>
+              <ion-col>
+                  <ion-button expand="block" color="warning" (click)="clean()">
+                      Limpar
+                  </ion-button>
+              </ion-col>
+              <ion-col>
+                  <ion-button expand="block" color="success" type="submit">
+                      Cadastrar
+                  </ion-button>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </form>
+</ion-content>
+
+
