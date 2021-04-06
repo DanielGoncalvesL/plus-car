@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Nova Despesa</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form (ngSubmit)="submit()" [formGroup]="expenseVehicleForm">
+        <ion-card-content>
+            <ion-item>
+                <ion-label position="stacked">Valor</ion-label>
+                <ion-input type="text" value="" placeholder="Escreva o Valor" formControlName="value"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Descrição</ion-label>
+                <ion-input type="text" value="" placeholder="Escreva a Descrição" formControlName="description"></ion-input>
+            </ion-item>
+        </ion-card-content>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="block" color="warning">
+                        Limpar
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="block" color="success" type="submit">
+                        Cadastrar
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

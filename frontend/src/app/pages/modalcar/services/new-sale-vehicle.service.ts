@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ISaleVehicleDTO } from '../dtos/ISaleVehicleDTO';
 
 import {
   HttpClient,
@@ -8,32 +9,21 @@ import {
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardService {
+export class NewSaleVehicleService {
 
   private readonly url = 'http://localhost:3333/';
-
-  ngOnInit(){
-
-  }
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('auth')).token}`
    }),
-  };
+};
 
   constructor(private http: HttpClient) { }
 
-  async listProfits(){
-    return this.http.get(this.url + "profits", this.httpOptions).toPromise();
-  }
-
-  async listSaleVehicles(){
-    return this.http.get(this.url + "sale-vehicle", this.httpOptions).toPromise();
-  }
-
-  async findSaleVehicle(id: string){
-    return this.http.get(this.url + "sale-vehicle/" + id, this.httpOptions).toPromise();
+  async createDespesa(data: ISaleVehicleDTO){
+    console.log(data)
+    return this.http.post(this.url + "sale-vehicle", JSON.stringify(data), this.httpOptions).toPromise();
   }
 }

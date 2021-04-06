@@ -9,6 +9,7 @@ import {
 
 import {DespesaService} from '../services/despesa.service';
 import { IExpenseDTO } from '../dtos/IExpenseDTO';
+import { LoadingServiceService } from '../../../services/loading-service.service';
 
 @Component({
   selector: 'app-new-despesa',
@@ -31,6 +32,7 @@ export class NewDespesaPage implements OnInit {
     protected navController: NavController,
     protected toastController: ToastController,
     private expenseService: DespesaService,
+    private loadingService: LoadingServiceService
   ) {}
 
   async ngOnInit() {
@@ -40,11 +42,12 @@ export class NewDespesaPage implements OnInit {
   }
 
   async submit() {
+    this.loadingService.present();
     const response = await this.expenseService.createDespesa < IExpenseDTO > ({
       value: this.despesaForm.get('value').value,
       description: this.despesaForm.get('description').value,
     });
-
+    this.loadingService.dismiss();
     if (response) {
       this.exibirMensagem('Despesa cadastrado com sucesso!');
       await this.navController.navigateRoot('/despesas');

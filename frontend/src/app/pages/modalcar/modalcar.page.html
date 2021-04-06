@@ -34,19 +34,19 @@
 
     <div id="buton">
         <ion-button color="warning">Editar</ion-button>
-        <ion-button (click)="presentAlertConfirm()" color="danger">Vender</ion-button>
+        <ion-button (click)="presentAlertVenda()" color="success">Vender</ion-button>
     </div>
 
     <ion-list>
         <ion-item>
             <ion-label id="label2">Despesas:</ion-label>
+            <ion-button size="small" color="primary" [routerLink]="['/despesas/new-expense-vehicle/' + vehicle?.id]" routerLinkActive="router-link-active">Nova Despesa</ion-button>
         </ion-item>
 
-        <ion-item>
-            <ion-label>Descrição:</ion-label>
-            <ion-label>Valor:</ion-label>
+        <ion-item *ngFor="let expenseVehicle of expensesVehicle">
+            <ion-label [routerLink]="['/despesas/vehicle-expenses/' + expenseVehicle.id]" routerLinkActive="router-link-active">{{expenseVehicle.description}}</ion-label>
             <ion-button size="small" color="warning">Editar</ion-button>
-            <ion-button (click)="presentAlertVenda()" size="small" color="danger">Excluir</ion-button>
+            <ion-button (click)="presentAlertConfirm()" size="small" color="danger">Excluir</ion-button>
         </ion-item>
     </ion-list>
 </ion-content>

@@ -3,28 +3,22 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Visualizar Despesa do Veiculo</ion-title>
+        <ion-title>Visualizar Venda</ion-title>
     </ion-toolbar>
 </ion-header>
-
-
 
 <ion-content>
     <ion-list>
         <ion-item-group>
-
             <ion-item-divider>
-                <ion-label id="label">Descrição: {{vehicleExpenses?.description}}</ion-label>
+                <ion-label id="label">Veiculo: {{saleVehicle?.vehicle.name}}</ion-label>
+            </ion-item-divider>
+            <ion-item-divider>
+                <ion-label id="label">Valor: R$ {{saleVehicle?.saleValue}}</ion-label>
             </ion-item-divider>
 
-            <ion-item-divider>
-                <ion-label id="label"> Valor: {{vehicleExpenses?.value}}</ion-label>
-            </ion-item-divider>
-
-            <ion-item-divider>
-                <ion-label id="label"> Veiculo: {{vehicleExpenses?.vehicle.name}}</ion-label>
-            </ion-item-divider>
         </ion-item-group>
 
     </ion-list>
+
 </ion-content>

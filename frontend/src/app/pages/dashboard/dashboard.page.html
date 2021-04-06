@@ -1,50 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Dashboard</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+
 <ion-content>
-    <ion-header>
-        <ion-toolbar>
-            <ion-buttons slot="start">
-                <ion-menu-button></ion-menu-button>
-            </ion-buttons>
-            <ion-title>Dashboard</ion-title>
-        </ion-toolbar>
-    </ion-header>
-    <div id="gastos">
-        <svg>
-    <circle
-      [ngStyle]="{ 'stroke-dashoffset': setStroke()  }"
-      id="circle"
-      cx="118"
-      cy="118"
-      r="115"
-      fill="none"
-    />
-  </svg>
-        <!-- <ion-button (click)="animacao(circle)" expand="block" fill="clear" shape="round">
-    teste animação
-  </ion-button> -->
-        <ion-text id="totalMes" color="danger">
-            <p>R$ {{currentMonth}}</p>
-        </ion-text>
-        <p id="relacaoMesPassado" *ngIf="getPercentage() < 1 && lastMonth">
-            {{arredondar(100 - (getPercentage() * 100))}}% à menos do que mês passado
-        </p>
-        <p id="relacaoMesPassado" *ngIf="getPercentage() >= 1 && lastMonth">
-            {{arredondar((getPercentage() * 100) - 100)}}% à mais do que mês passado
-        </p>
-        <p id="contasMes" *ngIf="!lastMonth">Total no mês</p>
-    </div>
+    <ion-list>
+        <ion-item-group>
 
-    <!-- LISTAGEM DAS CONTAS -->
-    <div id="dataContas" *ngFor="let conta of contasUsuario; let even = even; let odd = odd">
-        <div class="conta">
-            <div class="icon alt" *ngIf="even"></div>
-            <div class="icon" *ngIf="odd"></div>
-            <div class="item" [routerLink]="['/conta/register/' + conta.id]" routerLinkActive="router-link-active">
-                <p>{{conta.descricao + " - " + obterData(conta.dataVencimento)}}</p>
-            </div>
-            <img src="../../../assets/trash.png" (click)="excluir(conta.id)" alt="lixeira" width="25" id="lixeira" />
-            <div class="divider"></div>
-        </div>
-    </div>
+            <ion-item-divider>
+                <ion-label id="label">Lucro: R$ {{profits}}</ion-label>
+            </ion-item-divider>
+        </ion-item-group>
+    </ion-list>
 
-    
+
+    <ion-list>
+        <ion-item>
+            <ion-label id="label2">Veiculos Vendidos:</ion-label>
+        </ion-item>
+
+        <ion-item *ngFor="let saleVehicle of saleVehicles">
+            <ion-label [routerLink]="['/sale-vehicles/' + saleVehicle.id]" routerLinkActive="router-link-active">{{saleVehicle?.vehicle.name}}</ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>

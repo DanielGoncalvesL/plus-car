@@ -24,6 +24,11 @@ export class DespesaService {
     return this.http.post(this.url + "expenses", JSON.stringify(data), this.httpOptions).toPromise();
   }
 
+  async createExpenseVehicle<IExpenseDTO>(data: IExpenseDTO){
+    console.log(data)
+    return this.http.post(this.url + "vehicle-expenses", JSON.stringify(data), this.httpOptions).toPromise();
+  }
+
   async updateDespesa(data, id: string){
     return this.http.put(this.url + "expenses/" + id, JSON.stringify(data), this.httpOptions).toPromise();
   }
@@ -36,8 +41,20 @@ export class DespesaService {
     return this.http.get(this.url + "expenses/" + id, this.httpOptions).toPromise();
   }
 
+  async findExpenseVehicle(id: string){
+    return this.http.get(this.url + "vehicle-expenses/" + id, this.httpOptions).toPromise();
+  }
+
   async listDespesas(){
     return this.http.get(this.url + "expenses/", this.httpOptions).toPromise();
+  }
+
+  async listExpenses(){
+    return this.http.get(this.url + "vehicle-expenses/", this.httpOptions).toPromise();
+  }
+
+  async findExpensesVehiclesByVehicle(id: string){
+    return this.http.get(this.url + "vehicle-expenses/vehicle/" + id, this.httpOptions).toPromise();
   }
 
 }

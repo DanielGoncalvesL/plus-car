@@ -11,6 +11,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import { LoginService } from './services/login.service';
 import { ILoginDTO } from './dtos/ILoginDTO';
 import { catchError } from 'rxjs/operators';
+import { LoadingServiceService } from '../../services/loading-service.service';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
     private navController: NavController,
     private toastController: ToastController,
     private loginService: LoginService,
+    private loadingService: LoadingServiceService
   ) {}
 
   ngOnInit() {
@@ -46,8 +48,9 @@ export class LoginPage implements OnInit {
   }
 
   async onSubmit() {
+    this.loadingService.present();
     const userLogin = await this.loginService.auth({email: this.login.value.email, password: this.login.value.senha}).then();
-
+    this.loadingService.dismiss();
     if (userLogin) {
       await this.exibirMensagem('Login realizado com sucesso!!');
       localStorage.setItem('auth', JSON.stringify(userLogin));

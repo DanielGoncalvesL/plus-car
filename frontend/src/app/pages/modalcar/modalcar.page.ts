@@ -10,6 +10,10 @@ import {
   NewVehicleService
 } from '../vehicles/services/new-vehicle-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { DespesaService } from '../despesas/services/despesa.service';
+import { LoadingServiceService } from '../../services/loading-service.service';
+import { NavController, ToastController } from '@ionic/angular';
+import { NewSaleVehicleService } from './services/new-sale-vehicle.service';
 
 @Component({
   selector: 'app-modalcar',
@@ -19,8 +23,19 @@ import { ActivatedRoute } from '@angular/router';
 export class ModalcarPage implements OnInit {
 
   vehicle: any;
+  expensesVehicle: any;
 
-  constructor(private modalCrtl: ModalController, public alertController: AlertController, private vehicleService: NewVehicleService, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private modalCrtl: ModalController,
+    public alertController: AlertController,
+    private vehicleService: NewVehicleService,
+    private activatedRoute: ActivatedRoute,
+    private despesaService: DespesaService,
+    private loadingService: LoadingServiceService,
+    private newSaleVehicleService: NewSaleVehicleService,
+    protected navController: NavController,
+    protected toastController: ToastController,
+    ) {
 
   }
 
@@ -56,12 +71,16 @@ export class ModalcarPage implements OnInit {
 
 
   async ionViewWillEnter() {
+    this.loadingService.present();
     this.activatedRoute.params.subscribe(async param => {
       if (param['id']) {
         this.vehicle = await this.vehicleService.findVehicle(param['id']);
+        this.expensesVehicle = await this.despesaService.findExpensesVehiclesByVehicle(param['id']);
         console.log(this.vehicle)
+        console.log(this.expensesVehicle)
       }
     });
+    this.loadingService.dismiss();
   }
 
   async presentAlertVenda() {
@@ -85,13 +104,31 @@ export class ModalcarPage implements OnInit {
           }
         }, {
           text: 'Ok',
-          handler: () => {
-            console.log('Confirm Ok');
+          handler: async (data) =>  {
+            if(data.valorVenda){
+              const saleVehicle = await this.newSaleVehicleService.createDespesa({
+                saleValue: data.valorVenda,
+                vehicle_id: this.vehicle?.id
+              });
+
+              if(saleVehicle){
+                await this.exibirMensagem('Veiculo vendido com sucesso');
+                await this.navController.navigateRoot('dashboard');
+              }
+            }
           }
         }
       ]
     });
 
     await alert.present();
+  }
+
+  async exibirMensagem(mensagem: string) {
+    const toast = await this.toastController.create({
+      message: mensagem,
+      duration: 1500,
+    });
+    toast.present();
   }
 }
