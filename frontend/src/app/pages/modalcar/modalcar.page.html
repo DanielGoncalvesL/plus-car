@@ -1,69 +1,52 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Visualizar Carro</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Visualizar veiculo</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 
+
 <ion-content>
+    <ion-list>
+        <ion-item-group>
 
-<!-- List No Lines -->
-<ion-list>
-  <ion-item-group>
+            <ion-item-divider>
+                <ion-label id="label">Marca: {{vehicle?.brand}}</ion-label>
+            </ion-item-divider>
 
-  <ion-item-divider>
-    <ion-label id="label">Marca:</ion-label>
-  </ion-item-divider>
+            <ion-item-divider>
+                <ion-label id="label"> Modelo: {{vehicle?.name}}</ion-label>
+            </ion-item-divider>
 
-  <ion-item>
-    <ion-input value="Fiat"></ion-input>
-  </ion-item>
+            <ion-item-divider>
+                <ion-label id="label"> Ano: {{vehicle?.modelYear}}</ion-label>
+            </ion-item-divider>
 
-  <ion-item-divider>
-    <ion-label id="label"> Modelo: </ion-label>
-  </ion-item-divider>
+            <ion-item-divider>
+                <ion-label id="label">Valor: {{vehicle?.priceFipe}}</ion-label>
+            </ion-item-divider>
+        </ion-item-group>
 
-  <ion-item>
-    <ion-input value="Palio"></ion-input>
-  </ion-item>
+    </ion-list>
 
-  <ion-item-divider>
-    <ion-label id="label"> Ano: </ion-label>
-  </ion-item-divider>
+    <div id="buton">
+        <ion-button color="warning">Editar</ion-button>
+        <ion-button (click)="presentAlertConfirm()" color="danger">Vender</ion-button>
+    </div>
 
-  <ion-item>
-    <ion-input value="2013"></ion-input>
-  </ion-item>
+    <ion-list>
+        <ion-item>
+            <ion-label id="label2">Despesas:</ion-label>
+        </ion-item>
 
-  <ion-item-divider>
-    <ion-label id="label">Valor:</ion-label>
-  </ion-item-divider>
-
-  <ion-item>
-    <ion-input value="25.000,00"></ion-input>
-  </ion-item>
-  </ion-item-group>
-
-</ion-list>
-
-<div id="buton">
-  <ion-button  color="warning">Editar</ion-button>
-  <ion-button (click)="presentAlertConfirm()" color="danger">Vender</ion-button>
-</div>
-
-<ion-list>
-  <ion-item>
-    <ion-label id="label2">Despesas:</ion-label>
-  </ion-item>
-
-  <ion-item>
-      <ion-label>Descrição:</ion-label>
-      <ion-label>Valor:</ion-label>
-      <ion-button size="small" color="warning">Editar</ion-button>
-      <ion-button (click)="presentAlertConfirm()" size="small" color="danger">Excluir</ion-button>
-  </ion-item>
-</ion-list>
-
-
-
+        <ion-item>
+            <ion-label>Descrição:</ion-label>
+            <ion-label>Valor:</ion-label>
+            <ion-button size="small" color="warning">Editar</ion-button>
+            <ion-button (click)="presentAlertConfirm()" size="small" color="danger">Excluir</ion-button>
+        </ion-item>
+    </ion-list>
 </ion-content>

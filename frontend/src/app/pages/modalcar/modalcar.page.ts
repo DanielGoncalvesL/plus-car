@@ -1,5 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  AlertController,
+  ModalController
+} from '@ionic/angular';
+import {
+  NewVehicleService
+} from '../vehicles/services/new-vehicle-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-modalcar',
@@ -8,14 +18,15 @@ import { AlertController, ModalController } from '@ionic/angular';
 })
 export class ModalcarPage implements OnInit {
 
-  constructor(private modalCrtl: ModalController, public alertController: AlertController) { 
-    
+  vehicle: any;
+
+  constructor(private modalCrtl: ModalController, public alertController: AlertController, private vehicleService: NewVehicleService, private activatedRoute: ActivatedRoute) {
+
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  close(){
+  close() {
     this.modalCrtl.dismiss();
   }
 
@@ -23,21 +34,19 @@ export class ModalcarPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Confirme',
       message: '<strong>Deseja confirmar a exclusão?</strong>',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Confirmar',
-          handler: () => {
-            console.log('Confirm Okay');
-          }
+      buttons: [{
+        text: 'Cancelar',
+        role: 'cancel',
+        cssClass: 'secondary',
+        handler: (blah) => {
+          console.log('Confirm Cancel: blah');
         }
-      ]
+      }, {
+        text: 'Confirmar',
+        handler: () => {
+          console.log('Confirm Okay');
+        }
+      }]
     });
 
     await alert.present();
@@ -46,4 +55,12 @@ export class ModalcarPage implements OnInit {
   }
 
 
+  async ionViewWillEnter() {
+    this.activatedRoute.params.subscribe(async param => {
+      if (param['id']) {
+        this.vehicle = await this.vehicleService.findVehicle(param['id']);
+        console.log(this.vehicle)
+      }
+    });
+  }
 }

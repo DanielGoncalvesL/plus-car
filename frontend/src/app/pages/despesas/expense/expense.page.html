@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Visualizar Despesa</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-item-group>
+
+            <ion-item-divider>
+                <ion-label id="label">Descrição: {{expense?.description}}</ion-label>
+            </ion-item-divider>
+
+            <ion-item-divider>
+                <ion-label id="label">Descrição: {{expense?.value}}</ion-label>
+            </ion-item-divider>
+        </ion-item-group>
+
+    </ion-list>
+
+    <div id="buton">
+        <ion-button color="warning">Editar</ion-button>
+        <ion-button color="danger">Vender</ion-button>
+    </div>
+
+</ion-content>

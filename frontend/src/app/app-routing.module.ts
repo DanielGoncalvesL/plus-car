@@ -43,7 +43,7 @@ const routes: Routes = [{
   },
 
   {
-    path: 'modalcar',
+    path: 'modalcar/:id',
     loadChildren: () => import('./pages/modalcar/modalcar.module').then( m => m.ModalcarPageModule)
   }
 
